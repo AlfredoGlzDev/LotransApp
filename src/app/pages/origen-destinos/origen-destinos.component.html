@@ -1,0 +1,12 @@
+
+<h1>Origen / Destinos</h1>
+<app-grid 
+*ngIf="origenDestinos && origenDestinosheaders" 
+[list]="origenDestinos" 
+[headers]="origenDestinosheaders" 
+catalog="OrigenDestinos" 
+(openModalDelete) = "showDeleteModal($event)" 
+(editPage) = "editOrigenDestino($event)">
+</app-grid>
+<button class="btn btn-primary" type="submit" (click)="addNew()">Agregar Nuevo</button>
+<app-modal-confirm title="Eliminar Ciudad" message="¿Deseas eliminar esta Ciudad?" [showModal]="showModal" (submit) = "deleteItem($event)"></app-modal-confirm>

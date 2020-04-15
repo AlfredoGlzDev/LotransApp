@@ -1,0 +1,12 @@
+<h1>Operadores</h1>
+<app-grid *ngIf="operadores && operadoresheaders" [list]="operadores" [headers]="operadoresheaders" catalog="Operadores"
+    (openModalDelete)="showDeleteModal($event)" (editPage)="editOperadores($event)">
+</app-grid>
+<button class="btn btn-primary" type="submit" (click)="addNew()">Agregar Nuevo</button>
+<app-modal-confirm title="Eliminar Operador" message="¿Deseas eliminar este Operador?" [showModal]="showModal"
+    (submit)="deleteItem($event)"></app-modal-confirm>
+    <!-- <p *ngIf="prueba">
+        <select name="miselect" [(ngModel)]="seleccionado">
+            <option [value]="item.value" *ngFor="let item of prueba">{{item.text}}</option>
+        </select>
+    </p> -->

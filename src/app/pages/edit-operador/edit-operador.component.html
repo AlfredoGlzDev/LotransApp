@@ -1,0 +1,62 @@
+<a (click)="back()" class="go-back">
+    
+    <img class="img-size" src="../../../assets/images/chevron-left.png" >
+    Regresar
+</a>
+<h2>{{title}}</h2>
+
+<div class="clr-row ">
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-4 clr-col-lg-4 clr-col-xl-4">
+        <form class="clrForm" *ngIf="operador">
+            <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read
+                aloud.</span>
+            <clr-input-container class="grid-size">
+                <label>No. de Empleado</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="operador.NoEmpleado" name="NoEmpleado" required />
+                <!-- <clr-control-error>We need your first name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Nombre</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="operador.Nombre" name="Nombre" required />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Apellido Paterno</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="operador.ApellidoP" name="ApellidoP" required />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Apellido Materno</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="operador.ApellidoM" name="ApellidoM" />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Fecha Ingreso</label>
+                <input  [disabled]="!IsEnable" clrInput type="date" [(ngModel)]="operador.FechaIngreso" name="FechaIngreso" />
+                
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>No. de Celular</label>
+                <input [disabled]="!IsEnable" clrInput type="text" [(ngModel)]="operador.NoCelular" name="NoCelular" />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>No. de Cuenta</label>
+                <input [disabled]="!IsEnable" clrInput type="text" [(ngModel)]="operador.NoCuenta" name="NoCuenta" />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <br />
+            <button [disabled]="IsEnable" class="btn btn-primary" type="submit" (click)="edit()"
+                id="edit">Editar</button>
+            <button [disabled]="validateSumbit()" class="btn btn-primary" type="submit"
+                (click)="openModal()">Guardar</button>
+        </form>
+
+    </div>
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6 no-padding">
+        <app-images *ngIf="id" [catId]="id" type=4></app-images>
+    </div>
+
+    <app-modal-confirm title='Guardar' message="¿Deseas guardar esta información?" [showModal] = "showModal" (submit)="submit($event)"></app-modal-confirm>
+  

@@ -1,0 +1,69 @@
+<clr-main-container class="full-container">
+    <clr-header  class="header header-6">
+        <div class="branding">
+        <a class="nav-link" href="/">
+            <img class="img-size" src="../../../assets/images/short-icon.png" />
+            <!-- <clr-icon shape="truck" class="is-solid icon"></clr-icon> -->
+           
+        </a>
+    </div>
+    </clr-header>
+    <div class="content-container">
+        <main class="content-area">
+            <router-outlet></router-outlet>
+        </main>
+        <nav class="sidenav" [clr-nav-level]="2">
+            <section class="sidenav-content">
+                <section class="nav-group">
+                    <label for="tabexample2 title">CATALOGOS</label>
+                    <ul class="nav-list">
+                        <li *ngFor="let item of catalogs; let i = index">
+                            <a class="nav-link" [routerLink]="item.url"> {{item.name | uppercase }}</a>
+                        </li>
+                    </ul>
+                </section>
+            </section> 
+        </nav>
+    </div>
+</clr-main-container>
+
+
+<!-- <clr-main-container class="full-container">
+
+    <clr-header class="header header-6">
+        <div class="branding">
+            <a class="nav-link" href="/">
+                <h1>LOTRANS</h1>
+            </a>
+        </div>
+      
+    </clr-header>
+
+    <div class="content-container">
+       
+         
+       
+        <nav class="sidenav">
+            <section class="sidenav-content">
+                <section class="nav-group">
+                    <label for="tabexample2">Catalogos</label>
+                    <ul class="nav-list">
+                        <li *ngFor="let item of catalogs; let i = index">
+                            <a class="nav-link" [routerLink]="item.url"> {{item.name}}</a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </nav>
+        <div class="content-area">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</clr-main-container>
+
+
+
+
+<div>
+    Footer
+</div>  -->

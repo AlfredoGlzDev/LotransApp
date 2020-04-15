@@ -1,0 +1,264 @@
+<form class="clrForm">
+    <clr-tabs>
+        <clr-tab>
+            <button clrTabLink id="link1">Bitacora</button>
+            <clr-tab-content id="content1" *clrIfActive>
+                <br />
+                <div class="clr-row">
+                    <div class="clr-col-12 clr-col-md-4">
+                        <div class="clr-row">
+                            <clr-select-container class="Selectwidth">
+                                <label>Tracto</label>
+                                <select class="Selectwidth" clrSelect name="tractors" [(ngModel)]="bitacora.TractoId"
+                                    required>
+                                    <option *ngFor="let t of tractors" [value]=t.Id> {{t.NoSerie}} - {{t.Economico}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-select-container>
+                                <label>Operador</label>
+                                <select class="Selectwidth" clrSelect name="options" [(ngModel)]="bitacora.OperadorId"
+                                    required>
+                                    <option *ngFor="let item of operadores" [value]=item.Id> {{item.NoEmpleado}} -
+                                        {{item.Nombre}}
+                                        {{item.ApellidoP}} </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>Folio</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.Folio" name="Folio" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-input-container>
+                                <label>Fecha de Captura</label>
+                                <input class="Selectwidth" [disabled]="!IsEnable" clrInput type="date"
+                                    [(ngModel)]="bitacora.FechaCaptura" name="FechaCaptura" />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-select-container>
+                                <label>Origen</label>
+                                <select class="Selectwidth" clrSelect name="ciudades" [(ngModel)]="bitacora.OrigenId"
+                                    required>
+                                    <option *ngFor="let c of ciudades" [value]=c.Id> {{c.Ciudad}} - {{c.Estado}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-select-container>
+                                <label>Destino</label>
+                                <select class="Selectwidth" clrSelect name="ciudades" [(ngModel)]="bitacora.DestinoId"
+                                    required>
+                                    <option *ngFor="let c of ciudades" [value]=c.Id> {{c.Ciudad}} - {{c.Estado}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>No. de Control</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.NoControl" name="NoControl" required />
+                            </clr-input-container>
+                        </div>
+                    </div>
+                    <div class="clr-col-12 clr-col-md-4">
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>Tipo de Mercancia</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.TipoMercancia" name="TipoMercancia" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>Toneladas</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.Toneladas" name="Toneladas" required />
+                            </clr-input-container>
+                        </div>
+
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>Cliente</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.Cliente" name="Cliente" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-select-container class="Selectwidth">
+                                <label>Estatus de Bitacora</label>
+                                <select class="Selectwidth" clrSelect name="EstatusBitacora"
+                                    [(ngModel)]="bitacora.EstatusBitacora" required>
+                                    <option value="Libre"> Libre </option>
+                                    <option value="Libre"> Transito </option>
+                                    <option value="Libre"> Multidestino </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>Costo de Flete</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.CostoFlete" name="CostoFlete" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-row">
+                            <clr-input-container class="grid-size">
+                                <label>Pago a Chofer</label>
+                                <input class="Selectwidth" clrInput [disabled]="!IsEnable" type="text"
+                                    [(ngModel)]="bitacora.PagoChofer" name="PagoChofer" required />
+                            </clr-input-container>
+                        </div>
+
+                    </div>
+                </div>
+            </clr-tab-content>
+        </clr-tab>
+        <clr-tab>
+            <button clrTabLink>Gastos de Viaje</button>
+            <clr-tab-content>
+                <br />
+                <section *ngFor="let c of costos; let i = index">
+                    <div class="clr-row">
+                        <div class="clr-col-md-4 clr-col-12">
+                            <clr-select-container class="Selectwidth">
+                                <label>Gasto de Viaje</label>
+                                <select class="Selectwidth marginSelect" clrSelect name="gastos_{{c.id}}"
+                                    [(ngModel)]="c.gastoId" required>
+                                    <option class="marginSelect"> ---
+                                    <option class="marginSelect" *ngFor="let g of gastos" [value]=g.Id> {{g.Clave}} -
+                                        {{g.Concepto}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-col-md-4 clr-col-12">
+                            <clr-input-container class="grid-size">
+                                <label>Costo </label>
+                                <input class='Selectwidth' clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="c.value"
+                                    name="value_{{c.id}}" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-col-md-4 clr-col-12">
+                            <button id='g1' title='Eliminar Gasto' type="button" class="btn btn-icon btn-danger btnMargin" aria-label="error" (click)="removeItem(i)">
+                                <clr-icon title="Eliminar Gasto" shape="trash"></clr-icon>
+                            </button>
+                            <button type="button" class="btn btn-danger-outline btnEliminarDesktop" aria-label="error" (click)="removeItem(i)">Eliminar</button>
+                        </div>
+
+                    </div>
+                    <br />
+                </section>
+                <button class="btn btn-outline btnMarginBottom" (click)="addItem()">Agregar Gasto</button>
+            </clr-tab-content>
+        </clr-tab>
+        <clr-tab>
+            <button clrTabLink>Viaticos</button>
+            <clr-tab-content>
+                <br />
+                <section *ngFor="let cv of viaticos; let i = index">
+                    <div class="clr-row">
+                        <div class="clr-col-md-4 clr-col-12">
+                            <clr-select-container class="Selectwidth">
+                                <label>Gasto Viaticos</label>
+                                <select class="Selectwidth marginSelect" clrSelect name="gastos_{{cv.id}}"
+                                    [(ngModel)]="cv.gastoId" required>
+                                    <option class="marginSelect"> ---</option>
+                                    <option class="marginSelect" *ngFor="let g of gastosViatico" [value]=g.Id>
+                                        {{g.Clave}} -
+                                        {{g.Concepto}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-col-md-4 clr-col-12">
+                            <clr-input-container>
+                                <label>Costo</label>
+                                <input class='Selectwidth' clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="cv.value"
+                                    name="value_{{cv.id}}" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-col-md-4 clr-col-12">
+                            <button type="button" class="btn btn-icon btn-danger btnMargin" aria-label="error" (click)="removeItemViatico(i)">
+                                <clr-icon title="Eliminar Viatico" shape="trash"></clr-icon>
+                            </button>
+                            <button title='Eliminar Viatico' type="button" class="btn btn-danger-outline btnEliminarDesktop" aria-label="error" (click)="removeItemViatico(i)">Eliminar</button>
+                        </div>
+
+                    </div>
+                    <br />
+                </section>
+                <button class="btn btn-outline btnMarginBottom" type="submit" (click)="addItemViatico()" id="addItem">Agregar
+                    Viatico</button>
+            </clr-tab-content>
+        </clr-tab>
+        <clr-tab>
+            <button clrTabLink [clrTabLinkInOverflow]="inOverflow">Repartos</button>
+            <clr-tab-content>
+                <br />
+                <section *ngFor="let r of repartos;let i = index">
+                    <div class="clr-row">
+                        <div class="clr-col-md-3 clr-col-12">
+                            <clr-input-container class="grid-size">
+                                <label>Descripcion </label>
+                                <input class='Selectwidth' clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="r.descripcion"
+                                    name="descripcion_{{r.id}}" required />
+                            </clr-input-container>
+                        </div>
+                        <div class="clr-col-md-3 clr-col-12">
+                            <clr-select-container>
+                                <label>Origen</label>
+                                <select class="Selectwidth" clrSelect name="ciudadesOrigen_{{r.id}}" 
+                                    required>
+                                    <option class="marginSelect"> ---</option>
+                                    <option *ngFor="let c of ciudades" [value]=c.Id> {{c.Ciudad}} - {{c.Estado}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                        <div class="clr-col-md-3 clr-col-12">
+                            <clr-select-container>
+                                <label>Destino</label>
+                                <select class="Selectwidth" clrSelect name="ciudadesDestino_{{r.id}}"
+                                    required>
+                                    <option class="marginSelect"> ---</option>
+                                    <option *ngFor="let c of ciudades" [value]=c.Id> {{c.Ciudad}} - {{c.Estado}}
+                                    </option>
+                                </select>
+                            </clr-select-container>
+                        </div>
+                       
+                        <div class="clr-col-md-3 clr-col-12">
+                            <button type="button" class="btn btn-icon btn-danger btnMargin" aria-label="error" (click)="removeItemReparto(i)">
+                                <clr-icon title="Elimnar Reparto" shape="trash"></clr-icon>
+                            </button>
+                            <button title='Eliminar Reparto' type="button" class="btn btn-danger-outline btnEliminarDesktop" aria-label="error" (click)="removeItemReparto(i)">Eliminar</button>
+                          
+                        </div>
+
+                    </div>
+                    <br />
+                </section>
+                <button class="btn btn-outline btnMarginBottom" type="submit" (click)="addItemReparto()" id="addItem">Agregar
+                    Reparto</button>
+            </clr-tab-content>
+        </clr-tab>
+
+    </clr-tabs>
+
+    <br />
+    <button  class="btn " type="submit" (click)="edit()" id="edit">Editar</button>
+    <button class="btn btn-primary" type="submit" (click)="openModal()">Guardar</button>
+</form>
+
+
+<app-modal-confirm title='Guardar' message="¿Deseas guardar esta información?" [showModal]="showModal"
+    (submit)="submit($event)"></app-modal-confirm>

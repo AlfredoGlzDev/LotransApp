@@ -1,0 +1,12 @@
+
+<h1>Gastos Viaje</h1>
+<app-grid 
+*ngIf="gastos && gastosheaders" 
+[list]="gastos" 
+[headers]="gastosheaders" 
+catalog="Gastos" 
+(openModalDelete) = "showDeleteModal($event)" 
+(editPage) = "editGastos($event)">
+</app-grid>
+<button class="btn btn-primary" type="submit" (click)="addNew()">Agregar Nuevo</button>
+<app-modal-confirm title="Eliminar Gastos de Viaje" message="¿Deseas eliminar el Gasto de Viaje?" [showModal]="showModal" (submit) = "deleteItem($event)"></app-modal-confirm>

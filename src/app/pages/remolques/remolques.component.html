@@ -1,0 +1,12 @@
+
+<h1>Remolques</h1>
+<app-grid 
+*ngIf="remolques && remolquesheaders" 
+[list]="remolques" 
+[headers]="remolquesheaders" 
+catalog="Remolques" 
+(openModalDelete) = "showDeleteModal($event)" 
+(editPage) = "editRemolque($event)">
+</app-grid>
+<button class="btn btn-primary" type="submit" (click)="addNew()">Agregar Nuevo</button>
+<app-modal-confirm title="Eliminar Remolque" message="¿Deseas eliminar este Remolque?" [showModal]="showModal" (submit) = "deleteItem($event)"></app-modal-confirm>

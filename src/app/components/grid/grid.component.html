@@ -1,0 +1,19 @@
+<clr-datagrid>
+    <clr-dg-placeholder>No hay contenido disponible</clr-dg-placeholder>
+    <clr-dg-column *ngFor="let header of headers; let j = index" [clrDgField]="header.value">{{header.text}}</clr-dg-column>
+    <clr-dg-row *clrDgItems="let item of list">
+        <clr-dg-cell *ngFor="let name of headers">{{item[name.value]}}</clr-dg-cell>
+        <clr-dg-action-overflow>
+            <button class="action-item" (click)="onEdit(item.Id)">Detalles</button>
+            <button  class="action-item" (click)="deleteModal(item.Id)">Eliminar</button>
+        </clr-dg-action-overflow>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+        <clr-dg-pagination #pagination [clrDgPageSize]="10">
+            <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]">{{catalog}} por página</clr-dg-page-size>
+            {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+            de {{pagination.totalItems}} {{catalog}}
+        </clr-dg-pagination>
+    </clr-dg-footer>
+</clr-datagrid>

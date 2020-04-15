@@ -1,0 +1,58 @@
+$min-small: 576px;
+$max-small: 767px;
+$min-medium: 768px;
+$max-medium: 991px;
+$min-large: 992px;
+
+.full-container {
+  .content-area {
+    //background-color: white;
+    background-color: #f1f1f1;
+  }
+  .img-size{
+    width: 85px;
+  }
+.icon{
+  color: white;
+  width: 35px;
+}
+  .header-color {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+
+  .sidenav{
+    width: 25%;
+  }
+  .sidenav .nav-group label {
+    font-size: 1.2rem;
+  }
+  .sidenav .nav-group .nav-list {
+    margin-top: 1rem;
+  }
+  .sidenav .nav-group .nav-list, .sidenav .nav-group label
+  {
+    padding: 0 0 0 1rem;
+    letter-spacing: 2px;
+  }
+  .sidenav .nav-group .nav-list .nav-link {
+    font-size: .7rem;
+    //margin-bottom: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    font-weight: 500;
+    letter-spacing: .6px;
+    //line-height: 1rem;
+  }
+}
+
+@media screen and (min-width: $min-medium) and (max-width: $max-medium) {
+ 
+}
+
+@media screen and (max-width: 576px) {
+  .branding {
+    max-width: 10rem !important;
+  }
+}

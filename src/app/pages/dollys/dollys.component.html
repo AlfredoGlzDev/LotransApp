@@ -1,0 +1,12 @@
+
+<h1>Dollys</h1>
+<app-grid 
+*ngIf="dollys && dollysheaders" 
+[list]="dollys" 
+[headers]="dollysheaders" 
+catalog="Dollys" 
+(openModalDelete) = "showDeleteModal($event)" 
+(editPage) = "editDolly($event)">
+</app-grid>
+<button class="btn btn-primary" type="submit" (click)="addNew()">Agregar Nuevo</button>
+<app-modal-confirm title="Eliminar Dolly" message="¿Deseas eliminar este Dolly?" [showModal]="showModal" (submit) = "deleteItem($event)"></app-modal-confirm>

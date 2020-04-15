@@ -1,0 +1,12 @@
+
+<h1>Tractores</h1>
+<app-grid 
+*ngIf="tractors && tractorheaders" 
+[list]="tractors" 
+[headers]="tractorheaders" 
+catalog="Tractores" 
+(openModalDelete) = "showDeleteModal($event)" 
+(editPage) = "editTractor($event)">
+</app-grid>
+<button class="btn btn-primary" type="submit" (click)="addNew()">Agregar Nuevo</button>
+<app-modal-confirm title="Eliminar Tractor" message="¿Deseas eliminar este Tractor?" [showModal]="showModal" (submit) = "deleteItem($event)"></app-modal-confirm>

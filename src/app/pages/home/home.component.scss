@@ -1,0 +1,26 @@
+$min-small: 576px;
+$max-small: 767px;
+$min-medium: 768px;
+$max-medium: 991px;
+$min-large: 992px;
+
+
+.home-container{
+    // background-image: url('../../../assets/images/LOGO\ LOT.jpg');
+     img{
+         align-content: center;
+         height: 100%;
+         width: 90%;
+     }
+ }
+
+@media screen and (min-width: $min-medium) and (max-width: $max-medium) {
+ 
+}
+
+@media screen and (max-width: 576px) {
+    img{
+        margin-top: 50%;
+    }
+}
+

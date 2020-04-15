@@ -1,0 +1,36 @@
+<a (click)="back()">
+    <clr-icon shape="undo"></clr-icon>
+    Regresar
+</a>
+<h2>{{title}}</h2>
+
+<div class="clr-row ">
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-4 clr-col-lg-4 clr-col-xl-4">
+        <form class="clrForm"  *ngIf="origenDestino">
+            <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read
+                aloud.</span>
+            <clr-input-container class="grid-size">
+                <label>Ciudad</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="origenDestino.Ciudad" name="Ciudad" required />
+                <!-- <clr-control-error>We need your first name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Estado</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="origenDestino.Estado" name="Estado" required />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+           
+            <br />
+            <button [disabled]="IsEnable" class="btn btn-primary" type="submit" (click)="edit()"
+                id="edit">Editar</button>
+            <button [disabled]="validateSumbit()" class="btn btn-primary" type="submit"
+                (click)="openModal()">Guardar</button>
+        </form>
+
+    </div>
+    <!-- <div class="clr-col-12 clr-col-sm-12 clr-col-md-6">
+        <app-images *ngIf="id" [catId]="id" type=1></app-images>
+    </div> -->
+
+    <app-modal-confirm title='Guardar' message="¿Deseas guardar esta información?" [showModal] = "showModal" (submit)="submit($event)"></app-modal-confirm>
+  

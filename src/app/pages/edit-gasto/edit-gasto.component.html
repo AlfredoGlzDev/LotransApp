@@ -1,0 +1,51 @@
+<a (click)="back()" class="go-back">
+    <img class="img-size" src="../../../assets/images/chevron-left.png" >
+    Regresar
+</a>
+<h2>{{title}}</h2>
+
+<div class="clr-row ">
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-4 clr-col-lg-4 clr-col-xl-4">
+        <form class="clrForm" *ngIf="gasto">
+            <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read
+                aloud.</span>
+                <clr-checkbox-container clrInline>
+                    <clr-checkbox-wrapper>
+                        <label>Viatico</label>
+                        <input clrCheckbox type="checkbox" [disabled]="!IsEnable" [(ngModel)]="gasto.IsViatico" name="IsViatico" />
+                    </clr-checkbox-wrapper>
+                   
+                </clr-checkbox-container>
+    
+            <clr-input-container class="grid-size">
+                <label>Clave</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="gasto.Clave" name="Clave" required />
+                <!-- <clr-control-error>We need your first name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Concepto</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="gasto.Concepto" name="Concepto"
+                    required />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+           
+            <!-- 
+            <clr-input-container>
+                <label>Viático</label>
+                <input clrInput [disabled]="!IsEnable" type="checkbox" [(ngModel)]="gasto.IsViatico" name="IsViatico" />
+            </clr-input-container> -->
+
+            <br />
+            <button [disabled]="IsEnable" class="btn btn-primary" type="submit" (click)="edit()"
+                id="edit">Editar</button>
+            <button [disabled]="validateSumbit()" class="btn btn-primary" type="submit"
+                (click)="openModal()">Guardar</button>
+        </form>
+
+    </div>
+    <!-- <div class="clr-col-12 clr-col-sm-12 clr-col-md-6">
+        <app-images *ngIf="id" [catId]="id" type=1></app-images>
+    </div> -->
+
+    <app-modal-confirm title='Guardar' message="¿Deseas guardar esta información?" [showModal]="showModal"
+        (submit)="submit($event)"></app-modal-confirm>

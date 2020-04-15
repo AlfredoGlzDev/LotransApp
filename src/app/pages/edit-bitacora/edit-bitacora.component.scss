@@ -1,0 +1,52 @@
+$min-medium: 768px;
+$max-medium: 1024px;
+
+.Selectwidth {
+    width: 200px;
+}
+
+.Selectwidth1 {
+    width: 400px;
+}
+
+.marginSelect {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.btnMargin {
+    margin-top: 30px;
+    margin-left: 20px;
+    display: none;
+}
+.btnEliminarDesktop {
+    margin-top: 1rem;
+}
+
+.btnMarginBottom {
+    margin-bottom: 80px;
+}
+
+
+@media screen and (min-width: $min-medium) and (max-width: $max-medium) {
+    .Selectwidth {
+        width: 1
+        50px;
+    }
+    .btnEliminarDesktop{
+        display: none;
+    }
+    .btnMargin {
+        display: inline;
+    }
+
+}
+
+@media screen and (min-width: $max-medium)
+{
+    .btnEliminarDesktop{
+        display: none;
+    }
+    .btnMargin {
+        display: inline;
+    }
+}

@@ -1,0 +1,24 @@
+<div class="clr-col-12">
+    <clr-datagrid>
+        <clr-dg-column>Imagenes</clr-dg-column>
+    
+        <clr-dg-row  *clrDgItems="let image of images; let i = index">
+            <clr-dg-cell class="truncate">{{image.Name}}</clr-dg-cell>
+            <clr-dg-cell>
+                <a class="cursor" (click)="showImage(i)">Ver Imagen</a>
+            </clr-dg-cell>
+            <clr-dg-cell>
+                <a class="cursor" (click)="openModalImageDelete(image.Id)">Eliminar Imagen</a>
+            </clr-dg-cell>
+        </clr-dg-row>
+    </clr-datagrid>
+    <input class="input-image" type="file" (change)="addImage($event)" />
+</div>
+<app-modal-confirm title='Eliminar' message="¿Deseas Eliminar esta Imagen?" [showModal] = "showDeleteModal" (submit)="deleteImage($event)"></app-modal-confirm>
+
+<!-- <clr-modal [(clrModalOpen)]="showImageModal" [clrModalSize]="lg" class="modal-size"> -->
+    <clr-modal [(clrModalOpen)]="showImageModal" class="modal-size">
+    <div class="modal-body  clr-text-center">
+        <img *ngIf ="images && images.length" [src]="images && convertImage(images[index].Img)" style="max-width: 100%;"/>
+    </div>
+</clr-modal>

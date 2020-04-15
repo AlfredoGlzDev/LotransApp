@@ -1,0 +1,50 @@
+<a (click)="back()">
+    <clr-icon shape="undo"></clr-icon>
+    Regresar
+</a>
+<h2>{{title}}</h2>
+
+<div class="clr-row ">
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-4 clr-col-lg-4 clr-col-xl-4">
+        <form class="clrForm"  *ngIf="dolly">
+            <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read
+                aloud.</span>
+            <clr-input-container class="grid-size">
+                <label>Marca</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="dolly.Marca" name="Marca" required />
+                <!-- <clr-control-error>We need your first name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container class="grid-size">
+                <label>Tipo</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="dolly.TipoDolly" name="TipoDolly" required />
+                <!-- <clr-control-error>We need your first name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Modelo</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="dolly.Modelo" name="Modelo" required />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>Economico</label>
+                <input clrInput [disabled]="!IsEnable" type="text" [(ngModel)]="dolly.Economico" name="Economico" required />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <clr-input-container>
+                <label>No. de serie</label>
+                <input [disabled]="!IsEnable" clrInput type="text" [(ngModel)]="dolly.NoSerie" name="NoSerie" />
+                <!-- <clr-control-error>We need your last name for legal compliance</clr-control-error> -->
+            </clr-input-container>
+            <br />
+            <button [disabled]="IsEnable" class="btn btn-primary" type="submit" (click)="edit()"
+                id="edit">Editar</button>
+            <button [disabled]="validateSumbit()" class="btn btn-primary" type="submit"
+                (click)="openModal()">Guardar</button>
+        </form>
+
+    </div>
+    <div class="clr-col-12 clr-col-sm-12 clr-col-md-6 clr-col-lg-6 clr-col-xl-6 no-padding">
+        <app-images *ngIf="id" [catId]="id" type=2></app-images>
+    </div>
+</div>
+    <app-modal-confirm title='Guardar' message="¿Deseas guardar esta información?" [showModal] = "showModal" (submit)="submit($event)"></app-modal-confirm>
+  
